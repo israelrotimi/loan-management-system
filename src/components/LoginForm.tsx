@@ -8,7 +8,7 @@ const LoginForm = () => {
             <input type="email" name="username" id="username" placeholder="Email" />
             <input type="password" name="password" id="password" placeholder="Password" />
             <small><a href="#">FORGOT PASSWORD?</a></small>
-            <button type="submit">LOG IN</button>
+            <button type="submit" className="btn-large">LOG IN</button>
         </form>
     </div>
   )

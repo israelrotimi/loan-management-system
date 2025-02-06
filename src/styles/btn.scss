@@ -1,0 +1,22 @@
+@use "variables" as *;
+@mixin btn {
+  padding: 10px;
+  border-radius: 8px;
+}
+@mixin outlined($outline-color) {
+  border: 1px solid $outline-color;
+  color: $outline-color;
+}
+.btn-large {
+  @include btn;
+  width: 100%;
+  color: $bg-color;
+  background-color: $primary-color;
+  text-transform: uppercase
+}
+.btn-primary {
+  @include outlined($primary-color);
+}
+.btn-delete {
+  @include outlined($primary-color);
+}
