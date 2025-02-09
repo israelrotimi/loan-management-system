@@ -29,7 +29,7 @@ const NavBar: React.FC = () => {
         <a href="#">Docs</a>
         <Bell className="icon" />
         <img
-          src="https://randomuser.me/api/portraits/thumb/men/60.jpg"
+          src="https://randomuser.me/api/portraits/thumb/men/80.jpg"
           alt="User"
         />
         <a href="#">

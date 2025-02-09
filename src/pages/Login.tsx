@@ -1,6 +1,7 @@
-import LoginForm from "../components/LoginForm"
-import logo from "../assets/logo.svg"
-import loginCover from "../assets/login-page-cover.png"
+import LoginForm from "../components/LoginForm";
+import logo from "../assets/logo.svg";
+import loginCover from "../assets/login-page-cover.png";
+import "../styles/Login.scss";
 
 const Login = () => {
   return (
@@ -11,7 +12,7 @@ const Login = () => {
       </div>
       <LoginForm />
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

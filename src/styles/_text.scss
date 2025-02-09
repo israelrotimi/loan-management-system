@@ -1,0 +1,9 @@
+@use "_variables" as *;
+
+@mixin special-text {
+  text-transform: uppercase;
+}
+@mixin text-primary {
+  @include special-text;
+  color: $primary-color;
+}

@@ -1,4 +1,5 @@
 @use "variables" as *;
+
 @mixin btn {
   padding: 10px;
   border-radius: 8px;
@@ -12,7 +13,7 @@
   width: 100%;
   color: $bg-color;
   background-color: $primary-color;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 .btn-primary {
   @include outlined($primary-color);

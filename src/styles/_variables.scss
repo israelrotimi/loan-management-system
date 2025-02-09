@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "ProjectFont";
+  src: url("../assets/fonts/Avenir-next-lt-pro/AvenirNextLTPro-Regular.otf");
+}
+$primary-color: #39cdcc;
+$bg-color: #ffffff;
+$primary-font: ProjectFont;
+$heading-text-color: #213f7d;
+$body-text-color: #545f7d;
+$link-color: #213f7d;
+$tablet-down-breakpoint: 768px;
+$mobile-down-breakpoint: 480px;
+$small-mobile-down-breakpoint: 320px;
+
