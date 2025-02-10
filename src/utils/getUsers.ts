@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const API_URL = "https://run.mocky.io/v3/1aa51e08-3345-4bef-80a3-6e67fc09a30b";
+const API_URL = "https://run.mocky.io/v3/82a67a67-120d-4cdd-8ae2-7b9e19bc258c";
 
 
-interface User{
+export interface User{
   id: number,
   organization: string,
   username: string,
