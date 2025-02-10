@@ -16,6 +16,7 @@ const NavBar: React.FC = () => {
         <div className="search-box">
           <input
             type="text"
+            id="search"
             placeholder="Search for anything"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}

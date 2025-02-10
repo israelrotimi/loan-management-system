@@ -1,6 +1,6 @@
 @use "variables" as *;
 @use "btn" as *;
-@use "media-queries" as *;
+@use "text" as *;
 
 body {
   font-family: $primary-font;
@@ -23,4 +23,8 @@ h6 {
 }
 a {
   color: $link-color;
+}
+
+.important-text {
+  @include special-text;
 }

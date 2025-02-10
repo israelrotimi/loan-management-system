@@ -1,0 +1,24 @@
+@use "variables" as *;
+
+.user-summary-container {
+    position: absolute;
+    margin-top: 20px;
+    right: 10px;
+    top: 10%;
+    width: 70%;
+    @media screen and (max-width: $tablet-down-breakpoint) {
+        width: 95%;
+    }
+}
+.row {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+    @media screen and (max-width: $mobile-down-breakpoint) {
+        flex-direction: column;
+        align-items: center;
+    }
+    .user-card {
+        width: 25%;
+    }
+}
