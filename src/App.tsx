@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import UserDetailsPage from "./pages/UserDetailsPage";
 
 const App = () => {
   return (
@@ -9,7 +10,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/dashboard/users" element={<Dashboard />}></Route>
-        {/* <Route path="dashboard/users/:id" element={<User />}></Route> */}
+        <Route path="dashboard/users/:id" element={<UserDetailsPage />}></Route>
       </Routes>
     </Router>
   );

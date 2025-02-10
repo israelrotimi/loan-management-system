@@ -19,5 +19,5 @@
   @include outlined($primary-color);
 }
 .btn-delete {
-  @include outlined($primary-color);
+  @include outlined($blacklisted);
 }
