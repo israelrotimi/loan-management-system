@@ -1,37 +1,31 @@
 //set some data in localStore
 //First define the data
-interface Store {
-  hash: string,
-  gender: string,
-  married: boolean,
-  hasChildren: boolean,
-  residence: string,
-  employed: boolean,
-  employmentSector: string,
-  employedFor: number,
-  guarantors:
-    {
-      fullname: string,
-      phone_no: string,
-      email: string,
-      rel: string
-    }[]
+export interface Store {
+  hash: string;
+  gender: string;
+  married: boolean;
+  hasChildren: boolean;
+  residence: string;
+  employed: boolean;
+  employmentSector: string;
+  employedFor: number;
+  guarantors: {
+    fullname: string;
+    phone_no: string;
+    email: string;
+    rel: string;
+  }[];
 }
 
-const gender = ["male", "female"]
-const married = [true, false]
-const hasChildren = [true, false]
-const residence = ["residential", "business"]
-const employed = [true, false]
-const sector = ["fintech", "education", "agriculture"]
-
-
-
-
-
+const gender = ["male", "female"];
+const married = [true, false];
+const hasChildren = [true, false];
+const residence = ["residential", "business"];
+const employed = [true, false];
+const sector = ["fintech", "education", "agriculture"];
 
 // Then create it
-const createUserStore  = () : Store => ({
+const createUserStore = (): Store => ({
   hash: "WIOFNOVWOF34ONR9NF9HGSLNGSLG",
   gender: gender[Math.floor(Math.random() * 2)],
   married: married[Math.floor(Math.random() * 2)],
@@ -45,30 +39,31 @@ const createUserStore  = () : Store => ({
       fullname: "Adekunle Mike",
       phone_no: "09038748625",
       email: "ademike@gmail.com",
-      rel: "Uncle"
+      rel: "Uncle",
     },
     {
       fullname: "Lara Blessing",
       phone_no: "09038587625",
       email: "blesslara@gmail.com",
-      rel: "Sister"
-    }
-  ]
-})
+      rel: "Sister",
+    },
+  ],
+});
 
 // Set this data when a user is clicked
 const setUserStore = () => {
-  const store : Store  = createUserStore()
-  const storeString = JSON.stringify(store)
-  localStorage.setItem("userStore", storeString)
-}
+  const store: Store = createUserStore();
+  const storeString = JSON.stringify(store);
+  localStorage.setItem("userStore", storeString);
+};
 
-const getUserStore = () => {
-  const store = localStorage.getItem("userStore")
-  if(store){
-    return JSON.parse(store)
+const getUserStore = (): Store | null => {
+  const store = localStorage.getItem("userStore");
+  if (store) {
+    return JSON.parse(store);
   } else {
-    return "not set"
+    return null;
   }
-}
-export { setUserStore, getUserStore }
+};
+
+export { setUserStore, getUserStore };

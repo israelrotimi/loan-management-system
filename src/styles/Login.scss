@@ -1,7 +1,6 @@
 @use "_variables" as *;
 @use "_text" as *;
 @use "_btn" as *;
-@use "_media-queries" as *;
 
 .login-form {
   flex: 1;
@@ -43,10 +42,11 @@
   display: flex;
   width: 99vw;
   height: 100vh;
-  @include for-size(phone-only) {
+  @media screen  and (max-width: $mobile-down-breakpoint){
     flex-direction: column;
     margin: 5px;
-  }
+  }  
+    
 }
 .login-image-container {
   flex: 1;

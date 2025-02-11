@@ -27,6 +27,11 @@
       padding: 12px;
       background-color: #f8f9fa;
       color: #545f7d;
+      button {
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
     }
     td {
       padding: 12px;
