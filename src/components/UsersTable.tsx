@@ -1,10 +1,15 @@
-import React, { useState } from "react";
-import "../styles/UsersTable.scss"; // Import styles
-import { User } from "../utils/getUsers";
+import React, { useState, useEffect, useRef } from "react";
+import "../styles/UsersTable.scss";
+import { User } from "../utils/apiUtils";
+import { FaFilter } from "react-icons/fa";
+import UserOptions from "./UserOptions.tsx";
 
 const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
+  const [activeMenu, setActiveMenu] = useState<number | null>(null); // Track active menu popup
+  const menuRef = useRef<HTMLTableRowElement | null>(null); // Track the menu reference
+
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 15; // Number of rows per page
+  const usersPerPage = 10; // Number of rows per page
 
   // Pagination logic
   const indexOfLastUser = currentPage * usersPerPage;
@@ -13,6 +18,27 @@ const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
   const totalPages = Math.ceil(users.length / usersPerPage);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  const toggleMenu = (index: number) => {
+    setActiveMenu(activeMenu === index ? null : index); // Toggle menu on click
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setActiveMenu(null);
+      }
+    };
+
+    if (activeMenu !== null) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [activeMenu]);
+
 
   // Badge styling based on status
   const getStatusClass = (status: string) => {
@@ -35,7 +61,7 @@ const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
       <table className="users-table">
         <thead>
           <tr>
-            <th>ORGANIZATION</th>
+            <th>ORGANIZATION <FaFilter /></th>
             <th>USERNAME</th>
             <th>EMAIL</th>
             <th>PHONE NUMBER</th>
@@ -46,7 +72,7 @@ const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
         </thead>
         <tbody>
           {currentUsers.map((user, index) => (
-            <tr key={index}>
+            <tr key={index} ref={activeMenu === index ? menuRef : null}  style={{position: "relative"}}>
               <td>{user.organization}</td>
               <td>{user.username}</td>
               <td>{user.email}</td>
@@ -56,7 +82,8 @@ const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
                 <span className={getStatusClass(user.status)}>{user.status}</span>
               </td>
               <td>
-                <button className="menu-btn">⋮</button>
+                <button className="menu-btn" onClick={() => toggleMenu(index)}>⋮</button>
+                {activeMenu === index && (<UserOptions id={index.toString()} />)}
               </td>
             </tr>
           ))}

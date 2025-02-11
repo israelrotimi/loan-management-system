@@ -1,0 +1,27 @@
+.user-options-container {
+  position: absolute;
+  right: 10px;
+  background: #fff;
+  z-index: 3;
+  div {
+    width: 250px;
+    border-bottom: 1px solid black;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      padding: 15px 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ddd;
+      }
+
+      img {
+        margin-right: 5px;
+      }
+    }
+  }
+}

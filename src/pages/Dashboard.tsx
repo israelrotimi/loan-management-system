@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import SideBar from "../components/SideBar";
 import UsersSummary from "../components/UsersSummary";
 import UsersTable from "../components/UsersTable";
-import { fetchUsers, User } from "../utils/getUsers";
+import { fetchUsers, User } from "../utils/apiUtils";
 
 const Dashboard = () => {
   const [users, setUsers] = useState<User[]>([])

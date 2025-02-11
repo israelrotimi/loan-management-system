@@ -4,7 +4,7 @@ import database from "../assets/icons/database.png";
 import document from "../assets/icons/document.png";
 import "../styles/UserSummary.scss";
 
-import { fetchUsers } from "../utils/getUsers";
+import { fetchUsers } from "../utils/apiUtils";
 import { useEffect, useState } from "react";
 
 
