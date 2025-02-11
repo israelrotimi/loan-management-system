@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/UsersTable.scss";
 import { User } from "../utils/apiUtils";
-import { FaFilter } from "react-icons/fa";
+import filterResultButton from "../assets/icons/filter-results-button.png";
 import UserOptions from "./UserOptions.tsx";
+import FilterPopup from "./FilterPopup.tsx";
 
 const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
   const [activeMenu, setActiveMenu] = useState<number | null>(null); // Track active menu popup
   const menuRef = useRef<HTMLTableRowElement | null>(null); // Track the menu reference
+
+  const [showFilterPopup, setShowFilterPopup] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 10; // Number of rows per page
@@ -21,6 +24,10 @@ const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
 
   const toggleMenu = (index: number) => {
     setActiveMenu(activeMenu === index ? null : index); // Toggle menu on click
+  };
+
+  const toggleFilterPopup = () => {
+    setShowFilterPopup(!showFilterPopup); // Toggle filter popup on click
   };
 
   useEffect(() => {
@@ -58,15 +65,46 @@ const UsersTable: React.FC<{ users: User[] }> = ({ users }) => {
 
   return (
     <div className="users-table-container">
+      {showFilterPopup && <FilterPopup />}
       <table className="users-table">
         <thead>
           <tr>
-            <th>ORGANIZATION <FaFilter /></th>
-            <th>USERNAME</th>
-            <th>EMAIL</th>
-            <th>PHONE NUMBER</th>
-            <th>DATE JOINED</th>
-            <th>STATUS</th>
+            <th>
+              ORGANIZATION
+              <button  onClick={() => {toggleFilterPopup}}>
+                <img src={filterResultButton} alt="filter" />
+              </button>
+            </th>
+            <th>
+              USERNAME
+              <button  onClick={() => {toggleFilterPopup}}>
+                <img src={filterResultButton} alt="filter" />
+              </button>
+            </th>
+            <th>
+              EMAIL
+              <button  onClick={() => {toggleFilterPopup}}>
+                <img src={filterResultButton} alt="filter" />
+              </button>
+              </th>
+            <th>
+              PHONE NUMBER
+              <button  onClick={() => {toggleFilterPopup}}>
+                <img src={filterResultButton} alt="filter" />
+              </button>
+              </th>
+            <th>
+              DATE JOINED
+            <button  onClick={() => {toggleFilterPopup}}>
+                <img src={filterResultButton} alt="filter" />
+              </button>
+            </th>
+            <th>
+              STATUS
+            <button  onClick={() => {toggleFilterPopup}}>
+                <img src={filterResultButton} alt="filter" />
+              </button>
+            </th>
             <th></th>
           </tr>
         </thead>

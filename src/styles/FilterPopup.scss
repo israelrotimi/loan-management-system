@@ -1,0 +1,91 @@
+.filter-popup {
+  width: 270px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  input, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
+.select-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  select {
+    appearance: none;
+    padding-right: 30px;
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    color: #777;
+  }
+}
+
+.date-picker {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    color: #777;
+  }
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  .reset-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .filter-btn {
+    background: #00aaff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+}
