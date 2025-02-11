@@ -18,8 +18,7 @@ export interface User{
 
 const fetchUsers = async (): Promise<User[]> => {
   const response = await axios.get(API_URL)
-  const data = response.data;
-  return data;
+  return response.data;
 }
 
 
