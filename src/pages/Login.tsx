@@ -1,16 +1,16 @@
 import LoginForm from "../components/LoginForm";
-import logo from "../assets/logo.svg";
-import loginCover from "../assets/login-page-cover.png";
-import "../styles/Login.scss";
 
 const Login = () => {
   return (
-    <div className="wrapper">
-      <div className="login-image-container">
-        <img src={logo} alt="lendsqr" className="logo" />
-        <img src={loginCover} alt="cover image" />
+    <div className="container"
+    style={{
+      backgroundImage: 'linear-gradient(75deg,  darkblue, lightblue'
+    }}>
+      <div className="row">
+        <div className="col-md-4 col-sm-10 mx-auto">
+          <LoginForm />
+        </div>
       </div>
-      <LoginForm />
     </div>
   );
 };
