@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 const LoginForm = () => {
   let navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -27,35 +28,24 @@ const LoginForm = () => {
 
   return (
     <div className="login-form">
-      <h2>Welcome!</h2>
-      <p>Enter details to login.</p>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          name="username"
-          id="username"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        {error && <small style={{ color: "red" }}>{error}</small>}
-        <small>
-          <a href="#">FORGOT PASSWORD?</a>
-        </small>
-        <button type="submit" className="btn-large" disabled={loading}>
-          {loading ? "Logging in..." : "LOG IN"}
-        </button>
-      </form>
+      <Form>
+        <h2 className="display-2 text-center">Sign in</h2>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
     </div>
   );
 };
