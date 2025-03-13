@@ -1,6 +1,8 @@
 @use "variables" as *;
 @use "btn" as *;
 @use "text" as *;
+@import 'bootstrap/scss/bootstrap';
+
 
 body {
   font-family: $primary-font;
